@@ -12,12 +12,12 @@ class Api::V1::ContactsController < Api::V1::ApiController
 			render json: { errors: @contact.errors.full_messages, reason: "validation failed"} # error in saving, return as a hash (json)
 		end
 	end
-	#get - localhost:3000/api/v1/contacts/:id
+	
 	def show
 		@contact = Contact.find(params[:id])
 		render json: @contact 
 	end
-	#patch - localhost:3000/api/v1/contacts/:id
+	
 	def update
 		@contact = Contact.find(params[:id])
 		if @contact.update_attributes(contact_params)
@@ -32,7 +32,7 @@ class Api::V1::ContactsController < Api::V1::ApiController
 			}
 		end
 	end
-	#delete - localhost:3000/api/v1/contacts/:id
+	
 	def destroy
 		@contact = Contact.find(params[:id])
 		@contact.destroy

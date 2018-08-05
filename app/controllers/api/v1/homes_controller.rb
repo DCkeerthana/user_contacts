@@ -12,15 +12,9 @@ class Api::V1::HomesController < Api::V1::ApiController
 			render json: { errors: @user.errors.full_messages, reason: "validation failed"} # error in saving, return as a hash (json)
 		end
 	end
-	#get - localhost:3000/api/v1/users/:id
+	
 	def show
 		@user = User.find(params[:id])
-		
-		# @contacts = Array.new  
-		# @user.contacts.each do |contact|
-		# @contacts.push({id: contact.id, user_id: contact.user.id,name: contact.user.user_name,email: contact.user.email, mobile: contact.user.mobile})
-		# end
-		
 		render json: {
 			id: @user.id,
 			name: @user.user_name,
@@ -32,7 +26,7 @@ class Api::V1::HomesController < Api::V1::ApiController
 
 
 	end
-	#patch - localhost:3000/api/v1/users/:id
+	
 	def update
 		@user = User.find(params[:id])
 		if @user.update_attributes(user_params)
@@ -47,7 +41,7 @@ class Api::V1::HomesController < Api::V1::ApiController
 			}
 		end
 	end
-	#delete - localhost:3000/api/v1/users/:id
+	
 	def destroy
 		@user = User.find(params[:id])
 		@user.destroy

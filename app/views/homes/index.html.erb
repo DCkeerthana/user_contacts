@@ -1,4 +1,5 @@
 
+<% if (user_signed_in?) %>
 
 <h2>Listing users</h2>
 <% if @users.empty? %>
@@ -24,6 +25,7 @@
 	</tbody>
 </table></br>
 <% end %>
-<% if (user_signed_in?) && (can? :create, User) %>
-<%= link_to "Add user", new_user_path %>
+
+<% else%>
+<b> please sign-in</b>
 <% end %> 

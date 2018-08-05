@@ -14,17 +14,17 @@ load_and_authorize_resource
 		
 	end
 
-# binding.pry
+
 	def create
 		@category = Category.new(params[:category].permit(:name))
 		
 		if @category.save
-			# binding.pry
+			
 			redirect_to category_path(@category.id), notice: "the catrgory was sucessfully created"
 		else
 			render action: 'new'
 		end
-		# binding.pry
+		
 	end
 	
 

@@ -3,17 +3,14 @@ class Ability
 
   def initialize(user)
     if user.nil?
-            can [:read], [Category, Contact]
+            can [:read], [Home]
     
      else
-        can :mange, all
+        can :mange, :all
     end
     
   end
 end
-# elsif Contact do |contact|
-    #     contact.user_id == user.id
-    #     can :destroy [Contact]
 
 # Define abilities for the passed in user here. For example:
     #
