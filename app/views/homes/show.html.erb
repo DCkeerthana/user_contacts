@@ -1,0 +1,12 @@
+  </br></br><b>Name:</b><%=  @user.user_name %></br>
+  <b>Email:</b><%= @user.email%></br>
+  <b>Mobile:</b><%= @user.mobile %></br></br> 
+
+     <b>CONTACTS LIST </b>
+     <%# if @user.contacts.empty? %>
+     <!-- <p> No contacts found </p -->
+     <% @user.contacts.each do |contact| %>
+     <ol><li><%=  contact.name %>,<%=  contact.mobile %>,<%=contact.email %></li></ol>
+     <%# end %>
+<%end %>
+	

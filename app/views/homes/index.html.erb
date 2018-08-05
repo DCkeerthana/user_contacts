@@ -1,0 +1,29 @@
+
+
+<h2>Listing users</h2>
+<% if @users.empty? %>
+<p> NO USERS FOUND</p>
+<% else %>
+
+<table>
+	<thead>
+		<tr>
+			<th>NAME</th>
+			<th>EMAIL</th>
+			<th>MOBILE</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @users.each do |user|%>
+		<tr>
+		<td><%= link_to user.user_name, home_path(user.id) %></td>
+		<td><%=user.email %></td>
+		<td><%=user.mobile %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table></br>
+<% end %>
+<% if (user_signed_in?) && (can? :create, User) %>
+<%= link_to "Add user", new_user_path %>
+<% end %> 

@@ -1,0 +1,15 @@
+<h2>Listing Categories</h2>
+<ol>
+<% if @categories.empty? %>
+<p> there is no categories add Category </p>
+<% else %>
+<% @categories.each do |category| %>
+<li><%= link_to category.name,category_path(category.id) %> </li>
+
+<% end%>
+<% end %>
+</ol>
+
+<% if (user_signed_in?) && (can? :create, Category) %>
+<%= link_to "Add category", new_category_path %>
+<% end %> 
