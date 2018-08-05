@@ -6,7 +6,7 @@ class Ability
             can [:read], [Home]
     
      else
-        can :mange, :all
+        can :manage, :all
     end
     
   end
